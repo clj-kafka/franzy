@@ -12,6 +12,11 @@ Great fit with [Franzy](https://github.com/ymilky/franzy), a Clojure Kafka clien
 * You want to serialize Clojure data types with little effort.
 * You want seamless serialization, no embedded serialization calls at call sites or `.getBytes` ugly things floating around.
 
+# Docs
+
+* [API](http://ymilky.github.io/franzy-nippy/api/index.html)
+* See [Franzy Source](https://github.com/ymilky/franzy) and docs for more information about serializers/deserializers.
+
 ## Installation
 
 Add the necessary dependency to your project:
@@ -40,7 +45,9 @@ Then use with a producer, such as the one with [Franzy](https://github.com/ymilk
         value-serializer (serializers/nippy-serializer)]
     (with-open [p (producer/make-producer pc key-serializer value-serializer)]
       ;;spray useless data to Kafka using Clojure types
-      (send-async! "aliens-wearing-curtains" 2262 ["s: Who? The Narn or the Centauri? k: yes" "...is dead. k: We are all Kosh." "If you watch Legend of the Rangers, you will die."]))))
+      (send-async! "aliens-wearing-curtains" 2262 
+      ["s: Who? The Narn or the Centauri? k: yes" "...is dead. 
+      k: We are all Kosh." "If you watch Legend of the Rangers, you will die."]))))
 ```
 
 ## Deserializing
