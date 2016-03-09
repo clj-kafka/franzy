@@ -12,10 +12,11 @@ Great fit with [Franzy](https://github.com/ymilky/franzy), a Clojure Kafka clien
 * You want to serialize Clojure data types with little effort.
 * You want seamless serialization, no embedded serialization calls at call sites or `.getBytes` ugly things floating around.
 
-# Docs
+## Docs
 
-* [API](http://ymilky.github.io/franzy-nippy/api/index.html)
+* Read the browsable [API](http://ymilky.github.io/franzy-nippy/api/index.html)
 * See [Franzy Source](https://github.com/ymilky/franzy) and docs for more information about serializers/deserializers.
+* For more information about serializer options, compression, etc, see the official [Nippy](https://github.com/ptaoussanis/nippy) repo.
 
 ## Installation
 
