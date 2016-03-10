@@ -101,5 +101,5 @@
       "A nippy serializer should handle nil data, just in case..."
       (->> (.serialize serializer topic nil) =not=> nil))
     (fact
-      "A nippy deerializer should handle nil data, just in case..."
+      "A nippy deserializer should handle nil data, just in case..."
       (->> (.deserialize deserializer topic nil) =not=> nil))))
