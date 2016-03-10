@@ -25,6 +25,7 @@ Add the necessary dependency to your project:
 ```clojure
 [ymilky/franzy-nippy "0.0.1"]
 ```
+[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-fressian.svg)](https://clojars.org/ymilky/franzy-fressian)
 
 ## Serializing
 
