@@ -22,7 +22,7 @@
 
 ## Docs
 
-* Read the browsable [API](http://ymilky.github.io/franzy-common/api/index.html)
+* Read the browsable [API](http://ymilky.github.io/franzy-common/index.html)
 * See [Franzy Source](https://github.com/ymilky/franzy) and docs for more information about schemas, types, etc.
 * For more about using, validating, and developing schemas, see [Schema](https://github.com/plumatic/schema).
 
