@@ -13,7 +13,7 @@
                                         :password      :env
                                         :sign-releases false}}
             :dependencies [[org.clojure/clojure "1.8.0"]
-                           [org.apache.kafka/kafka-clients "0.9.0.1" :exclusions [org.scala-lang/scala-library]]
+                           [org.apache.kafka/kafka-clients "0.9.0.1"]
                            [com.taoensso/nippy "2.11.1"]]
             :plugins [[lein-codox "0.9.4"]]
             :codox {:metadata    {:doc/format :markdown}
