@@ -49,6 +49,8 @@ Add the necessary dependency to your project:
 [ymilky/franzy-admin "0.0.1"]
 ```
 
+[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-admin.svg)]
+
 ## Requirements
 
 * Running instance of Kafka 0.9+ and Zookeeper
