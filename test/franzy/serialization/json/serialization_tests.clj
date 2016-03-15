@@ -11,12 +11,12 @@
   (let [serializer (serializers/json-serializer)
         deserializer (deserializers/json-deserializer)
         topic "music-education"
-        data {:good-bands ["Camera Obscura" "Mazzy Star" "Best Coast"]
+        data {:good-bands                                             ["Camera Obscura" "Mazzy Star" "Best Coast"]
               :music-people-play-on-guitar-but-you-dont-want-to-heard '("Freedbird" "Indigo Girls" "All Folk" "Dave Matthews")
-              :good-year 1988
-              :essential-album "My Maudlin Career"
-              :most-overrated "Adele"
-              :good-music-this-year nil}]
+              :good-year                                              1988
+              :essential-album                                        "My Maudlin Career"
+              :most-overrated                                         "Adele"
+              :good-music-this-year                                   nil}]
     (fact
       "A JSON serializer is a Kafka serializer." :serializers
       (instance? Serializer serializer) => true)
@@ -125,12 +125,12 @@
   (let [serializer (serializers/smile-serializer)
         deserializer (deserializers/smile-deserializer)
         topic "music-education"
-        data {:good-bands ["Camera Obscura" "Mazzy Star" "Best Coast"]
+        data {:good-bands                                             ["Camera Obscura" "Mazzy Star" "Best Coast"]
               :music-people-play-on-guitar-but-you-dont-want-to-heard '("Freedbird" "Indigo Girls" "All Folk" "Dave Matthews")
-              :good-year 1988
-              :essential-album "My Maudlin Career"
-              :most-overrated "Adele"
-              :good-music-this-year nil}]
+              :good-year                                              1988
+              :essential-album                                        "My Maudlin Career"
+              :most-overrated                                         "Adele"
+              :good-music-this-year                                   nil}]
     (fact
       "A JSON serializer is a Kafka serializer." :serializers
       (instance? Serializer serializer) => true)
