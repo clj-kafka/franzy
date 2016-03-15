@@ -20,8 +20,9 @@
 
 (def ACL
   "A schema for a Zookeeper ACL."
-  (s/required-key :id) s/Any
-  (s/required-key :permissions) s/Int)
+  {
+   (s/required-key :id)          s/Any
+   (s/required-key :permissions) s/Int})
 
 (def Stat
   "A schema for a Zookeeper stat."
