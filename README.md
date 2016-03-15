@@ -34,7 +34,7 @@ A good fit with [Franzy](https://github.com/ymilky/franzy), a Kafka client and s
 
 ## Docs
 
-* Read the browsable [API](http://ymilky.github.io/franzy-embedded/api/index.html)
+* Read the browsable [API](http://ymilky.github.io/franzy-embedded/index.html)
 * See the source for some additional comments/docs
 * For more about using, validating, and developing schemas, see [Schema](https://github.com/plumatic/schema).
 
