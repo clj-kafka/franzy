@@ -152,9 +152,9 @@ Currently supported operations:
 * Update partition assignment configuration
 * Zookeeper path helpers for querying and deleting topics, if you need custom Zookeeper logic
 
-'''
+```
 Note: You may not decrease the number of partitions as this currently breaks Kafka semantics. Instead, delete the topic.
-'''
+```
 
 ### Consumer Groups
 
