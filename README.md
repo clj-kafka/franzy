@@ -1,4 +1,4 @@
-# Franzy-Common
+# Franzy-Embedded
 
 [Kafka](http://kafka.apache.org/documentation.html) embedded Broker.
 
