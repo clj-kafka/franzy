@@ -10,13 +10,13 @@
   (let [serializer (serializers/nippy-serializer)
         deserializer (deserializers/nippy-deserializer)
         topic "music-education"
-        data {:good-bands ["New Order" "Joy Division" "The Cure" "The Smiths" "Pulp" "Jesus and Mary Chain"]
-              :terrible-bands #{"The Eagles" "Most of American Music in the 90s"}
+        data {:good-bands                    ["New Order" "Joy Division" "The Cure" "The Smiths" "Pulp" "Jesus and Mary Chain"]
+              :terrible-bands                #{"The Eagles" "Most of American Music in the 90s"}
               :things-pretending-to-be-bands `("Justin Bieber" "Kanye West" "Beonce" "Arcade Fire")
-              :good-year 1984
-              :essential-album :script-of-the-bridge-by-the-chameleons
-              :most-overrated "Jennifer Lopez"
-              :good-music-this-year nil}]
+              :good-year                     1984
+              :essential-album               :script-of-the-bridge-by-the-chameleons
+              :most-overrated                "Jennifer Lopez"
+              :good-music-this-year          nil}]
     (fact
       "A nippy serializer is a Kafka serializer."
       (instance? Serializer serializer) => true)
