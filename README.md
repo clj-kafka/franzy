@@ -13,7 +13,7 @@ A good fit with [Franzy](https://github.com/ymilky/franzy), a Kafka client and s
 * [Component](https://github.com/stuartsierra/component) specific version of embedded Broker, for easy DI and integration with component systems
      * A component implementing the standard lifecycle protocol that starts/stops the Kafka broker safely (blocking)
      * A component that can compose the concrete version, if for some reason you prefer it wrapped, or need an example to develop your own
-* Schemas for validating Kafka broker configurations (via [Franzy-Common](https://github.com/ymilky/franzy-common)
+* Schemas for validating Kafka broker configurations (via [Franzy-Common](https://github.com/ymilky/franzy-common))
 * More as demand necessitates
 
 ## Why
