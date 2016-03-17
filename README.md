@@ -67,7 +67,7 @@ Ideally, you should be injecting your configuration via EDN, environment variabl
 First, require:
 
 ```clojure
-(my.ns
+(ns my.ns
   (:require [franzy.embedded.broker :as broker]
             [franzy.embedded.protocols :refer :all]))
 ```
@@ -132,7 +132,7 @@ If you need a startable broker, everything previous applies, just do this
 First, require:
 
 ```clojure
-(my.ns
+(ns my.ns
   (:require [franzy.embedded.component :as broker]))
 ```
 
@@ -153,7 +153,7 @@ For the pure component version:
 First, require:
 
 ```clojure
-(my.ns
+(ns my.ns
   (:require [franzy.embedded.composite :as broker]))
 ```
 
