@@ -1,6 +1,6 @@
 # Franzy-Transit
 
-[Kafka](http://kafka.apache.org/documentation.html) [Transit](https://github.com/cognitect/transit-clj).
+[Kafka](http://kafka.apache.org/documentation.html) serializer/deserializer using [Transit](https://github.com/cognitect/transit-clj). All options and formats supported.
 
 Supported formats include:
 
