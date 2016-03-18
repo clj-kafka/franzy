@@ -61,13 +61,12 @@
       (doseq [[k v] m]
         (.setProperty properties (encode k) (encode v)))
       properties))
-  (decode [m]
-    m)
+  (decode [m] m)
 
   Keyword
   (encode [kw]
     (name kw))
-  (deocde [kw] kw)
+  (decode [kw] kw)
 
   IPersistentCollection
   (encode [coll]
