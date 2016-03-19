@@ -4,11 +4,11 @@
 
 (def kafka-brokers
   ;;your kafka brokers in your cluster
-  ["10.0.0.6:9092"])
+  ["127.0.0.1:9092"])
 
 (def zookeeper-servers
   ;;your zk servers in your cluster
-  ["10.0.0.6:2181"])
+  ["127.0.0.1:2181"])
 
 (def is-secure? false)
 
@@ -22,7 +22,7 @@
    ;;serialize EDN to this topic
    :edn-topic             "great-moments-in-william-atherton"
    ;;serialize nippy to this topic
-   :nippy-topic           "land-wars-in-asia7"
+   :nippy-topic           "land-wars-in-asia"
    ;;serialize fressian to this topic
    :fressian-topic        "stop-allocating-arrays-in-loops"
    ;;serialize json to this topic
