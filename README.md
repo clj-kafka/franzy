@@ -10,11 +10,10 @@ A good fit with [Franzy](https://github.com/ymilky/franzy), a Kafka client and s
 * Concrete Embedded broker types for those that need or want it and prefer something that isn't a component or can be wrapped in one as desired
      * More control and easy for you to wrap in your own component if you wish
      * Full Kafka Broker lifecycle method
-* [Component](https://github.com/stuartsierra/component) specific version of embedded Broker, for easy DI and integration with component systems
+* [Component](https://github.com/stuartsierra/component) specific versions of embedded Broker, for easy DI and integration with component systems
      * A component implementing the standard lifecycle protocol that starts/stops the Kafka broker safely (blocking)
      * A component that can compose the concrete version, if for some reason you prefer it wrapped, or need an example to develop your own
 * Schemas for validating Kafka broker configurations (via [Franzy-Common](https://github.com/ymilky/franzy-common)
-* More as demand necessitates
 
 ## Why
 
@@ -62,15 +61,62 @@ Ensure you have an available instance of Zookeeper visible to the machine that w
 
 Ideally, you should be injecting your configuration via EDN, environment variables, params, etc.
 
-### Typed (concrete, via deftype) Broker
+### Startable Broker
+
+For most use-cases, prefer the Startable broker. It requires the least resistance to use and will be more REPL/Unit test friendly.
 
 First, require:
 
 ```clojure
-(my.ns
+(ns my.ns
   (:require [franzy.embedded.broker :as broker]
             [franzy.embedded.protocols :refer :all]))
 ```
+
+Then, to start a broker and do some work inside a with-open (try/catch/finally close):
+
+```clojure
+(with-open [b (broker/make-startable-broker)]
+ ;;do terrible things with broker and its friends
+
+ (println "I am doing broker things here, maybe a test, maybe selling someone's pension for pennies."))
+```
+
+If you don't have a config or want the standard localhost defaults for both Kafka and Zookeeper, you can just do:
+
+```clojure
+(let [b (broker/make-startable-broker)]
+  (startup broker)
+  ;;broker is running
+
+  ;;signal a shutdown, but may not shutdown for a bit
+  (shutdown b)
+
+  ;;stop the broker, blocks until shutdown
+  (await-shutdown b)
+
+  ;you can shortcut the above with:
+  (attempt-shutdown b))
+```
+
+### Typed Broker
+
+If you want to use an embedded broker for a quick server/unit test, you **must** use the startable version of the broker, or else it is up to you to elect partition leaders.
+
+If you see an exception in your logs such as: **LEADER_NOT_AVAILABLE**, this is your problem.
+
+This broker is for slightly lower-level usage and its functionality is wrapped by the startable version. Use this broker only if you need to customize Kafka's behavior with Zookeeper when developing or testing.
+
+With those caveats understood, first require:
+
+```clojure
+(ns my.ns
+  (:require [franzy.embedded.broker :as broker]
+            [franzy.embedded.protocols :refer :all]))
+```
+
+
+Usage is the same as the startable broker, with a few extras contained in the protocols namespace.
 
 If you don't have a config or want the standard localhost defaults for both Kafka and Zookeeper, you can just do:
 
@@ -89,57 +135,19 @@ If you don't have a config or want the standard localhost defaults for both Kafk
   (attempt-shutdown b))
 ```
 
-Alternatively, you can simply do.....
-
-```clojure
-(with-open [b (broker/make-broker)]
- ;;do terrible things with broker and its friends
-
- (println "The end is nigh"))
-```
-
-And if you do care about configuration, you can do:
-
-```clojure
-(with-open [b (broker/make-broker my-config)]
- ;;do terrible things with broker and its friends
-
- (println "In the heat of the night, I've got trouble"))
-```
-
-And if you want a thread prefix for logging or some other strange purposed
-
-```clojure
-(with-open [b (broker/make-broker config "prefix-of-prefixes")]
- ;;do terrible things with broker and its friends
-
- (println "This is the least interesting of the brokers in the world."))
-```
-
-### Startable Broker
-
-If you need a startable broker, everything previous applies, just do this
-
-```clojure
-(with-open [b (broker/make-startable-broker)]
- ;;do terrible things with broker and its friends
-
- (println "I am startable and do slightly less safer, because I can"))
-```
-
 ### Component Broker
 
 First, require:
 
 ```clojure
-(my.ns
+(ns my.ns
   (:require [franzy.embedded.component :as broker]))
 ```
 
-For the pure component version:
+For the pure startable component version:
 
 ```clojure
-(let [b (broker/make-embedded-broker)]
+(let [b (broker/make-embedded-startable-broker)]
   ;;calls startup
   (component/start b)
   ;;The Kafka Server itself
@@ -153,7 +161,7 @@ For the pure component version:
 First, require:
 
 ```clojure
-(my.ns
+(ns my.ns
   (:require [franzy.embedded.composite :as broker]))
 ```
 
@@ -173,7 +181,7 @@ For the pure component version:
 
 Check out the protocols and tests.
 
-A few things supported via protocols:
+A few things supported via protocols on the typed broker:
 
 * Get an instance of zk-utils for the lazy, to use with admin, and even better, [Franzy-Admin](https://github.com/ymilky/franzy-admin)
 * Get the bound port per channel, for example SSL or plain
@@ -209,10 +217,7 @@ Here's an example config with a few extra params to demonstrate, but you only ne
 
 ## Other
 
-* I've had on and off problems with all embedded Kafka servers on 0.9 with the Apache Curator framework when connecting to an embedded Zookeeper instance. It could just be me, but if you're having problems, try a docker or vagrant image instead for Zookeeper.
-* The schema tweaking for the broker config is always ongoing and constantly adding/removing things as Kafka itself changes. Let me know if you find anything breaking or want to make improvements.
-* It's slow for me and I hate you! Try tweaking your memory settings for the JVM, especially if launching via REPL. It's not going to be fast if you're not giving it resources. With proper setup, it runs fast enough and there's nothing we're doing to cripple it.
-* If you prefer to roll your own embedded server, you can use most of what's here and use what is in server.clj to create a KafkaServer to then wrap, destroy, or whatever it is you misguidedly plan to do.
+* For an embedded Zookeeper and Zookeeper cluster that goes great with an embedded Kafka broker, see [Travel Zoo](https://github.com/ymilky/travel-zoo)
 
 ## License
 

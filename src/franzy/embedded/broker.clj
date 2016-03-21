@@ -70,18 +70,24 @@
   (close [this]
     (attempt-shutdown this)))
 
-(defn ^EmbeddedKafkaBroker make-broker
-  ([] (make-broker nil nil))
-  ([broker-config] (make-broker broker-config nil))
-  ([broker-config thread-name-prefix]
+(defn make-broker
+  "Creates a low-level Kafka broker, useful for building more customized Zookeeper interactions."
+  (^EmbeddedKafkaBroker []
+   (make-broker nil nil))
+  (^EmbeddedKafkaBroker
+  [broker-config] (make-broker broker-config nil))
+  (^EmbeddedKafkaBroker
+  [broker-config thread-name-prefix]
    (-> broker-config
        (server/make-server thread-name-prefix)
        (EmbeddedKafkaBroker.))))
 
-(defn ^StartableEmbeddedKafkaBroker make-startable-broker
-  ([] (make-startable-broker nil))
-  ([broker-config]
+(defn make-startable-broker
+  "Creates a Kafka broker suitable for dev and unit testing."
+  (^StartableEmbeddedKafkaBroker []
+   (make-startable-broker nil))
+  (^StartableEmbeddedKafkaBroker
+  [broker-config]
    (-> broker-config
        (server/make-startable-server)
        (StartableEmbeddedKafkaBroker.))))
-

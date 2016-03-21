@@ -16,16 +16,46 @@
       (assoc component
         :server server)))
   (stop [{:keys [^KafkaServer server] :as component}]
-    (timbre/info "Stopping embedded Kafka component...")
+    (timbre/info "Stopping embedded Kafka component..." broker-config)
     (doto server
       (.shutdown)
       (.awaitShutdown))
+    (timbre/info "Stopped embedded Kafka component.")
     (assoc component
       :server nil)))
 
-(defn ^EmbeddedBroker make-embedded-broker
-  ([] (make-embedded-broker nil nil))
-  ([broker-config]
+(defn make-embedded-broker
+  "Creates a low-level embeddable broker."
+  (^EmbeddedBroker []
+   (make-embedded-broker nil nil))
+  (^EmbeddedBroker
+  [broker-config]
    (make-embedded-broker broker-config nil))
-  ([broker-config thread-name-prefix]
+  (^EmbeddedBroker
+  [broker-config thread-name-prefix]
    (->EmbeddedBroker broker-config thread-name-prefix)))
+
+(defrecord EmbeddedStartableBroker [broker-config]
+  component/Lifecycle
+  (start [component]
+    (timbre/info "Starting embedded startable Kafka component..." broker-config)
+    (let [server (server/make-startable-server broker-config)]
+      (.startup server)
+      (assoc component
+        :server server)))
+  (stop [{:keys [^KafkaServer server] :as component}]
+    (timbre/info "Stopping embedded startable Kafka component..." broker-config)
+    (doto server
+      (.shutdown)
+      (.awaitShutdown))
+    (timbre/info "Stopped embedded startable Kafka component.")
+    (assoc component
+      :server nil)))
+
+(defn make-embedded-startable-broker
+  "Creates an embedded startable Kafka broker component, suitable for unit testing and dev."
+  (^EmbeddedStartableBroker []
+   (make-embedded-startable-broker nil))
+  (^EmbeddedStartableBroker
+  [broker-config]
+   (->EmbeddedStartableBroker broker-config)))
