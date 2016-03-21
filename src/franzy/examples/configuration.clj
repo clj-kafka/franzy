@@ -12,12 +12,11 @@
 
 (def is-secure? false)
 
-(def default-partition-count 3)
+(def default-partition-count 4)
 
 ;;we'll bootstrap these topics
 (def topics-to-create
-  {
-   ;;serialize strings to this topic
+  {;;serialize strings to this topic
    :string-topic          "savage-freds"
    ;;serialize EDN to this topic
    :edn-topic             "great-moments-in-william-atherton"

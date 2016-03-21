@@ -13,7 +13,9 @@
                               :password      :env
                               :sign-releases false}}
   :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/core.async "0.2.374"]
                  [com.taoensso/timbre "4.3.1"]
+                 [ymilky/travel-zoo "0.0.1"]
                  [jarohen/nomad "0.7.2"]
                  [ymilky/franzy "0.0.1-SNAPSHOT"]
                  [ymilky/franzy-admin "0.0.1-SNAPSHOT"]
@@ -23,8 +25,7 @@
                  [ymilky/franzy-embedded "0.0.1-SNAPSHOT"]
                  [org.slf4j/slf4j-api "1.7.19"]
                  [org.slf4j/slf4j-nop "1.7.19"]
-                 [log4j/log4j "1.2.17"]
-                 [org.clojure/core.async "0.2.374"]]
+                 [log4j/log4j "1.2.17"]]
   :plugins [[lein-codox "0.9.4"]]
   :codox {:metadata    {:doc/format :markdown}
           :doc-paths   ["README.md"]
