@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-fressian "0.0.1-SNAPSHOT"
+(defproject ymilky/franzy-fressian "0.0.1"
             :description "A Kafka Serializer/Deserializer supporting Fressian, and an add-on for Franzy, a Clojure Kafka client."
             :url "https://github.com/ymilky/franzy-fressian"
             :author "ymilky and others, but see README"
