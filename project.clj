@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-nippy "0.0.1-SNAPSHOT"
+(defproject ymilky/franzy-nippy "0.0.1"
             :description "A Kafka Serializer/Deserializer supporting Nippy, and an add-on for Franzy, a Clojure Kafka client."
             :url "https://github.com/ymilky/franzy-nippy"
             :author "ymilky and others, but see README"
