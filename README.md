@@ -36,6 +36,7 @@ Add the necessary dependency to your project:
 ```clojure
 [ymilky/franzy-transit "0.0.1"]
 ```
+[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-transit.svg)](https://clojars.org/ymilky/franzy-transit)
 
 ## Serializing
 
