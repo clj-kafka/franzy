@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-mocks "0.0.1-SNAPSHOT"
+(defproject ymilky/franzy-mocks "0.0.1"
   :description "Mock producer and consumer for Kafka 0.9+ for testing, dev, etc."
   :url "https://github.com/ymilky/franzy-mocks"
   :author "ymilky"
@@ -14,8 +14,8 @@
                               :sign-releases false}}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.apache.kafka/kafka-clients "0.9.0.1"]
-                 [ymilky/franzy-common "0.0.1-SNAPSHOT"]
-                 [ymilky/franzy "0.0.1-SNAPSHOT"]]
+                 [ymilky/franzy-common "0.0.1"]
+                 [ymilky/franzy "0.0.1"]]
   :plugins [[lein-codox "0.9.4"]]
   :codox {:metadata    {:doc/format :markdown}
           :doc-paths   ["README.md"]
