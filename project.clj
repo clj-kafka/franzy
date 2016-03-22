@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-transit "0.0.1-SNAPSHOT"
+(defproject ymilky/franzy-transit "0.0.1"
             :description "A Kafka Serializer/Deserializer supporting Transit, and an add-on for Franzy, a Clojure Kafka client."
             :url "https://github.com/ymilky/franzy-transit"
             :author "ymilky"
