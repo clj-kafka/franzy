@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-admin "0.0.1-SNAPSHOT"
+(defproject ymilky/franzy-admin "0.0.1"
             :description "A Kafka Clojure Admin client, with support for topic, partition, group, cluster management, and more."
             :url "https://github.com/ymilky/franzy-admin"
             :author "ymilky"
@@ -16,7 +16,7 @@
                            [prismatic/schema "1.0.5"]
                            [org.apache.kafka/kafka_2.11 "0.9.0.1" :exclusions [org.scala-lang/scala-library]]
                            [org.scala-lang/scala-library "2.11.7"]
-                           [ymilky/franzy-common "0.0.1-SNAPSHOT"]
+                           [ymilky/franzy-common "0.0.1"]
                            [com.taoensso/timbre "4.3.1"]]
             :plugins [[lein-codox "0.9.4"]]
             :codox {:metadata    {:doc/format :markdown}
