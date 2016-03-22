@@ -274,8 +274,7 @@
   "A schema that takes a string or list must pass schema validation."
   (fact
     "A string is a string or list."
-    (s/check fs/StringOrList "feet!")
-    => nil)
+    (s/check fs/StringOrList "feet!") => nil)
   (fact
     "A string list is a string or list."
     (s/check fs/StringOrList ["8" "6" "7" "5" "3" "O" "9"])

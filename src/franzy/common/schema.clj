@@ -15,11 +15,14 @@
 
 (def NonEmptyString
   "Schema for a string that cannot be blank."
-  (s/both s/Str (s/pred (complement clojure.string/blank?) 'blank?)))
+  (s/constrained s/Str (complement clojure.string/blank?) 'blank?))
+
+(defn gt-eq-zero? [x]
+  (>= x 0))
 
 (def GreaterThanOrEqualToZero
   "Schema for a number greater than or equal to zero."
-  (s/pred (partial <= 0) 'GreaterThanOrEqualToZero?))
+  (s/pred gt-eq-zero? 'GreaterThanOrEqualToZero?))
 
 (def Positive
   "Schema for a positive Number."
@@ -31,15 +34,15 @@
 ;; Likewise, we want to ensure when a schema is checked that we know a value is out of range, especially for a particular config-related value.
 (def CoercableInt
   "Schema for a value that is coercable without overflow to a Integer."
-  (s/both s/Int (s/pred #(<= Integer/MIN_VALUE % Integer/MAX_VALUE) 'coercable-int?)))
+  (s/constrained s/Int #(<= Integer/MIN_VALUE % Integer/MAX_VALUE) 'coercable-int?))
 
 (def CoercableLong
   "Schema for a value that is coercable without overflow to a Long."
-  (s/both s/Int (s/pred #(<= Long/MIN_VALUE % Long/MAX_VALUE) 'coercable-long?)))
+  (s/constrained s/Int #(<= Long/MIN_VALUE % Long/MAX_VALUE) 'coercable-long?))
 
 (def CoercableShort
   "Schema for a value that is coercable without overflow to a Short."
-  (s/both s/Int (s/pred #(<= Short/MIN_VALUE % Short/MAX_VALUE) 'coercable-short?)))
+  (s/constrained s/Int #(<= Short/MIN_VALUE % Short/MAX_VALUE) 'coercable-short?))
 
 (def CoercableDouble
   "Schema for a value that is coercable without overflow to a Double."
@@ -51,11 +54,11 @@
 
 (def PosInt
   "Schema for positive integers."
-  (s/both Positive CoercableInt))
+  (s/constrained CoercableInt pos?))
 
 (def SPosInt
   "Schema for positive, zero inclusive integers."
-  (s/both GreaterThanOrEqualToZero CoercableInt))
+  (s/constrained CoercableInt gt-eq-zero?))
 
 (def SPosIntWithDefault
   "Schema for positive, zero inclusive integers that can also have -1 as a default value."
@@ -63,11 +66,11 @@
 
 (def PosLong
   "Schema for positive longs."
-  (s/both Positive CoercableLong))
+  (s/constrained CoercableLong pos?))
 
 (def SPosLong
   "Schema for positive, zero inclusive longs."
-  (s/both GreaterThanOrEqualToZero CoercableLong))
+  (s/constrained CoercableLong gt-eq-zero?))
 
 (def SPosLongWithDefault
   "Schema for positive, zero inclusive longs that can also have -1 as a default value."
@@ -75,11 +78,11 @@
 
 (def PosShort
   "Schema for positive shorts."
-  (s/both Positive CoercableShort))
+  (s/constrained CoercableShort pos?))
 
 (def SPosShort
   "Schema for positive, zero inclusive shorts."
-  (s/both GreaterThanOrEqualToZero CoercableLong))
+  (s/constrained CoercableLong gt-eq-zero?))
 
 (def SPosShortWithDefault
   "Schema for positive, zero inclusive shorts that can have also have -1 as a default value."
@@ -87,11 +90,11 @@
 
 (def PosDouble
   "Schema for positive doubles."
-  (s/both Positive CoercableDouble))
+  (s/constrained CoercableDouble pos?))
 
 (def SPosDouble
   "Schema for positive, zero inclusive doubles."
-  (s/both GreaterThanOrEqualToZero CoercableDouble))
+  (s/constrained CoercableDouble gt-eq-zero?))
 
 (def SPosDoubleWithDefault
   "Schema for positive, zero inclusive doubles that can have also have -1 as a default value."
@@ -110,17 +113,34 @@
 
 (def StringOrList
   "Schema for a value that can be a string or a collection."
-  (s/either NonEmptyString [AnyButNil]))
+  (s/pred (fn [x] (cond
+                    (string? x)
+                    true
+                    (sequential? x)
+                    true)) 'string-or-list?))
 
 (def NonEmptyStringOrList
-  "Schema for a value that can be a non-empty string or collection."
-  (s/either NonEmptyString (s/both NotEmpty [AnyButNil])))
+  "Schema for a value that can be a string or a collection."
+  (s/pred (fn [x] (cond
+                    (string? x)
+                    (if (clojure.string/blank? x) false true)
+                    (sequential? x)
+                    (if (empty? x) false true))) 'non-empty-string-or-list?))
 
 (def StringOrStringList
   "Schema for a value that can be a string or string collection."
-  (s/either NonEmptyString [NonEmptyString]))
+  (s/pred (fn [x] (cond
+                    (string? x)
+                    true
+                    (sequential? x)
+                    (every? string? x)))
+          'string-or-string-list?))
 
 (def NonEmptyStringOrStringList
   "Schema for a value that can be a non-empty string or string collection."
-  (s/either NonEmptyString (s/both NotEmpty [NonEmptyString])))
-
+  (s/pred (fn [x] (cond
+                    (string? x)
+                    (if (clojure.string/blank? x) false true)
+                    (sequential? x)
+                    (if (empty? x) false (every? #(and (string? %) (not (clojure.string/blank? %))) x))))
+          'non-empty-string-or-string-list?))
