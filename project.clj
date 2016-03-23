@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-embedded "0.0.1-SNAPSHOT"
+(defproject ymilky/franzy-embedded "0.0.1"
             :description "Embedded Kafka servers with full configuration and validation, components, and more."
             :url "https://github.com/ymilky/franzy-embedded"
             :author "ymilky"
@@ -18,7 +18,7 @@
                            [com.stuartsierra/component "0.3.1"]
                            [org.apache.kafka/kafka_2.11 "0.9.0.1" :exclusions [org.scala-lang/scala-library]]
                            [org.scala-lang/scala-library "2.11.7"]
-                           [ymilky/franzy-common "0.0.1-SNAPSHOT"]]
+                           [ymilky/franzy-common "0.0.1"]]
             :plugins [[lein-codox "0.9.4"]]
             :codox {:metadata {:doc/format :markdown}
                     :doc-paths   ["README.md"]
