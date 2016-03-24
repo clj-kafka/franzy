@@ -43,6 +43,12 @@
    (s/required-key :replicas)         (s/maybe [Node])
    (s/required-key :in-sync-replicas) (s/maybe [Node])})
 
+(def Cluster
+  "Schema for Kafka client cluster metadata."
+  {(s/optional-key :nodes) [Node]
+   (s/optional-key :partitions) [PartitionInfo]
+   (s/optional-key :unauthorized-topics) [s/Str]})
+
 (def SecurityProtocolEnum
   "Schema for a Security Protocol."
   ;;TODO: better, cleaner keyword support
@@ -51,6 +57,7 @@
   (s/enum "PLAINTEXT", "SSL", "SASL_PLAINTEXT", "SASL_SSL", "TRACE"
           :plaintext :ssl :sasl_plaintext :sasl_ssl))
 
+;;TODO: better enum handling here, should accept keywords
 (def TimeUnitEnum
   "Schema for a time unit."
   (apply s/enum (TimeUnit/values)))

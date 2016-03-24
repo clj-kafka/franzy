@@ -35,3 +35,10 @@
 (s/defn make-partition-info :- fs/PartitionInfo
   [m]
   (map->PartitionInfo m))
+
+(defrecord Cluster
+  [nodes partitions unauthorized-topics])
+
+(s/defn make-cluster
+  [m :- fs/Cluster]
+  (map->Cluster m))
