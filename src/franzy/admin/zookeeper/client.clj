@@ -5,8 +5,6 @@
            (org.I0Itec.zkclient ZkClient ZkConnection IZkConnection)
            (org.I0Itec.zkclient.serialize ZkSerializer)))
 
-(set! *warn-on-reflection* true)
-
 (defn make-zk-connection
   ^ZkConnection
   [zk-connection-config]

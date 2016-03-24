@@ -17,9 +17,10 @@ It fits in well with [Franzy](https://github.com/ymilky/franzy), but there's no 
 
 ## Why
 
-* You want to interact with Kafka, administer it, and work with Clojure in/out only, and do things like transduce the results.
+* You want to interact with Kafka, administer it, and work with Clojure in/out only, and do things like transduce the results. No Scala, no Java objects coming back as data.
+* You don't want to manage conversions between Java, Scala, and Clojure.
 * You want to administer your Kafka cluster programatically, possibly from a REPL, build-script, lein plugin, unit test, etc.
-* You have some tasks like creating topics, adding partitions, etc. that you want to do against Kafka that can't be done via a consumer or producer easilyl
+* You have some tasks like creating topics, adding partitions, etc. that you want to do against Kafka that can't be done via a consumer or producer easily
 * You need to get metadata about Kafka topics, partitions, consumer groups, etc. to make your Kafka client work correctlyl
 * Your application needs to make decisions in Kafka-related code such as a producer, consumer, ETL job, stream processing job based on live data from your Kafka clusterl
 * You hate the command-line tools with a passion, don't want to learn all their syntax/options, hate typing, want richer error handling from Clojure, etc.
@@ -48,6 +49,8 @@ Add the necessary dependency to your project:
 ```clojure
 [ymilky/franzy-admin "0.0.1"]
 ```
+
+[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-admin.svg)](https://clojars.org/ymilky/franzy-admin)
 
 ## Requirements
 
