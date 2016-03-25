@@ -3,6 +3,11 @@
             [franzy.common.models.schema :as fms]
             [schema.core :as s]))
 
+(def BrokerAddress
+  "Schema for a Clojure representation of a Kafka Broker address."
+  {(s/required-key :host) s/Str
+   (s/required-key :port) s/Int})
+
 ;;TODO: more generic range function for these schemas, just adding these as placeholders/legibility
 (def SegmentByteInt
   ;;yes, 14 is indeed the number of the counting. why not?
