@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-admin "0.0.1"
+(defproject ymilky/franzy-admin "0.0.2-SNAPSHOT"
             :description "A Kafka Clojure Admin client, with support for topic, partition, group, cluster management, and more."
             :url "https://github.com/ymilky/franzy-admin"
             :author "ymilky"
