@@ -1,4 +1,4 @@
-(ns franzy.common.configuration.connections.parser-tests
+(ns franzy.common.broker.parsers-tests
   (:require [midje.sweet :refer :all]
             [franzy.common.broker.parsers :as parsers]
             [schema.core :as s]
