@@ -1,4 +1,4 @@
-(defproject ymilky/franzy-embedded "0.0.1"
+(defproject ymilky/franzy-embedded "0.0.2-SNAPSHOT"
             :description "Embedded Kafka servers with full configuration and validation, components, and more."
             :url "https://github.com/ymilky/franzy-embedded"
             :author "ymilky"
@@ -13,12 +13,12 @@
                                         :password      :env
                                         :sign-releases false}}
             :dependencies [[org.clojure/clojure "1.8.0"]
-                           [prismatic/schema "1.0.5"]
+                           [prismatic/schema "1.1.0"]
                            [com.taoensso/timbre "4.3.1"]
                            [com.stuartsierra/component "0.3.1"]
                            [org.apache.kafka/kafka_2.11 "0.9.0.1" :exclusions [org.scala-lang/scala-library]]
-                           [org.scala-lang/scala-library "2.11.7"]
-                           [ymilky/franzy-common "0.0.1"]]
+                           [org.scala-lang/scala-library "2.11.8"]
+                           [ymilky/franzy-common "0.0.2-SNAPSHOT"]]
             :plugins [[lein-codox "0.9.4"]]
             :codox {:metadata {:doc/format :markdown}
                     :doc-paths   ["README.md"]
