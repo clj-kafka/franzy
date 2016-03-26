@@ -13,7 +13,7 @@
                                         :password      :env
                                         :sign-releases false}}
             :dependencies [[org.clojure/clojure "1.8.0"]
-                           [prismatic/schema "1.0.5"]]
+                           [prismatic/schema "1.1.0"]]
             :plugins [[lein-codox "0.9.4"]]
             :codox {:metadata    {:doc/format :markdown}
                     :doc-paths   ["README.md"]
