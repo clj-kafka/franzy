@@ -42,8 +42,7 @@
   [topic-partitions]
   (->> topic-partitions
        (maps->topic-partitions)
-       (into [])
-       (into-array TopicPartition)))
+       (into [])))
 
 (defn map->node
   "Converts a node map to a Kafka Node."

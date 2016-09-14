@@ -14,8 +14,8 @@
                                         :sign-releases false}}
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [prismatic/schema "1.0.5"]
-                           [org.apache.kafka/kafka-clients "0.9.0.1"]
-                           [ymilky/franzy-common "0.0.2-SNAPSHOT"]]
+                           [org.apache.kafka/kafka-clients "0.10.0.1"]
+                           [lbradstreet/franzy-common "0.0.2"]]
             :plugins [[lein-codox "0.9.4"]]
             :codox {:metadata    {:doc/format :markdown}
                     :doc-paths   ["README.md"]
