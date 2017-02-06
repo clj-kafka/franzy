@@ -1,17 +1,13 @@
-(defproject lbradstreet/franzy "0.0.2"
+(defproject mastondonc/franzy "0.0.3-SNAPSHOT"
             :description "Clojure Kafka client with support for Kafka producer, consumer, rebalancing, administration, and validation."
-            :url "https://github.com/ymilky/franzy"
+            :url "https://github.com/mastondonc/franzy"
             :author "ymilky and others, but see README"
             :license {:name "Eclipse Public License"
                       :url  "http://www.eclipse.org/legal/epl-v10.html"}
             :repositories {"snapshots" {:url           "https://clojars.org/repo"
-                                        :username      :env
-                                        :password      :env
-                                        :sign-releases false}
+                                        :creds :gpg}
                            "releases"  {:url           "https://clojars.org/repo"
-                                        :username      :env
-                                        :password      :env
-                                        :sign-releases false}}
+                                        :creds :gpg}}
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [prismatic/schema "1.0.5"]
                            [org.apache.kafka/kafka-clients "0.10.0.1"]
