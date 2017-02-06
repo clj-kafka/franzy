@@ -1,4 +1,4 @@
-(defproject mastondonc/franzy "0.0.3-SNAPSHOT"
+(defproject mastondonc/franzy "0.0.3"
             :description "Clojure Kafka client with support for Kafka producer, consumer, rebalancing, administration, and validation."
             :url "https://github.com/mastondonc/franzy"
             :author "ymilky and others, but see README"
