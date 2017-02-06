@@ -10,7 +10,7 @@
             [franzy.clients.consumer.defaults :as defaults])
   (:import (org.apache.kafka.clients.consumer KafkaConsumer ConsumerRebalanceListener Consumer)
            (org.apache.kafka.common.serialization Deserializer)
-           (java.util List Properties)
+           (java.util Collection Properties)
            (java.util.regex Pattern)
            (java.io Closeable)))
 
@@ -247,11 +247,11 @@
       (cond
         ;;this is like one of those cards in the back of a magazine...
         (sequential? topics)
-        (.subscribe consumer ^List topics listener)
+        (.subscribe consumer ^Collection topics listener)
         (instance? Pattern topics)
         (.subscribe consumer ^Pattern topics listener)
         (string? topics)
-        (.subscribe consumer ^List (vec [topics]) listener)
+        (.subscribe consumer ^Collection (vec [topics]) listener)
         :else (throw (ex-info "topics must be a sequence of topic strings, a topic string, or a regular expression pattern." {:topics topics})))))
   (partition-subscriptions [_]
     "Returns a set of the names of any currently subscribed topics.
