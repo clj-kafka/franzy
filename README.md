@@ -75,7 +75,7 @@ A good way to get started with Kafka is to use Docker and/or Vagrant. I recommen
 These libraries have had a few weeks of peer review and no issues thus far. I will be releasing some new versions shortly as I have time in the coming weeks. Thus far, there are no breaking API changes but I am open to any suggested changes or submissions. Please let me know and be ready for an upgrade soon. Thanks for your support.
 
 ```
-[ymilky/franzy "0.0.1"]
+[mastodonc/franzy "0.0.3"]
 ```
 
 [![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy.svg)](https://clojars.org/ymilky/franzy)
