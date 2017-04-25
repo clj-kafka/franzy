@@ -1,6 +1,6 @@
-(defproject mastondonc/franzy "0.0.4-SNAPSHOT"
+(defproject mastodonc/franzy "0.0.4-SNAPSHOT"
             :description "Clojure Kafka client with support for Kafka producer, consumer, rebalancing, administration, and validation."
-            :url "https://github.com/mastondonc/franzy"
+            :url "https://github.com/mastodonc/franzy"
             :author "ymilky and others, but see README"
             :license {:name "Eclipse Public License"
                       :url  "http://www.eclipse.org/legal/epl-v10.html"}
