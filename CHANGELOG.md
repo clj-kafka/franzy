@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This change
 - Helpers for working with topic partitions
 - Ability to create a partition destination to test/develop or for special use-cases for partitioners
 - Tweaked schema slightly for better performance and got rid of some calls to deprecated schema functions
+- Dependency updates for schema
 
 ### Fixed
 
@@ -19,5 +20,3 @@ All notable changes to this project will be documented in this file. This change
 ### Added
 
 - Initial Release
-
-[0.0.1]: https://github.com/ymilky/franzy/compare/0.0.1...0.0.1
