@@ -16,6 +16,8 @@ All notable changes to this project will be documented in this file. This change
 
 - Fixed decode/encode flipped in one of the artities for consumer constructor
 
+
+
 ## [0.0.1] - 2016-03-11
 ### Added
 
