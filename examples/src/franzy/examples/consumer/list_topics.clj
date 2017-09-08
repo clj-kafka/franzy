@@ -1,4 +1,4 @@
-(ns franzy.examples.producer.list-topics
+(ns franzy.examples.consumer.list-topics
   (:require [franzy.clients.consumer.client :as consumer]
             [franzy.common.metadata.protocols :refer :all]
             [franzy.examples.configuration :as config]
@@ -8,7 +8,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Consumer Topics List
 ;;
-;; This example demonstrates how a producer can query topic metadata from the cluster. This metadata is useful for a
+;; This example demonstrates how a consumer can query topic metadata from the cluster. This metadata is useful for a
 ;; making some pro-active choices about consumptions and for diagnosing issues. It can also be used to implement your
 ;; own consumer.
 ;;
