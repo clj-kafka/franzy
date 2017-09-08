@@ -6,10 +6,7 @@
                  [prismatic/schema "1.1.0"]]
   :plugins [[lein-monolith "1.0.1"]
             [com.roomkey/lein-v "6.1.0-cb-9-0x521a"]
-            [lein-codox "0.9.4"]]
-  :codox {:metadata    {:doc/format :markdown}
-          :doc-paths   ["README.md"]
-          :output-path "doc/api"}
+            ]
   :profiles {:dev              {:dependencies [[midje "1.7.0"]
                                                [jarohen/nomad "0.7.2"]]
                                 :plugins      [[lein-midje "3.2"]

@@ -5,12 +5,18 @@
   :deploy-repositories [["releases" :clojars]] :plugins
   [[lein-monolith "1.0.1"]
    [lein-cprint "1.2.0"]
+   [lein-codox "0.9.4"]
    [lein-cljfmt "0.5.7"]
    [com.roomkey/lein-v "6.1.0-cb-9-0x521a"]] :middleware [leiningen.v/version-from-scm
                                                           leiningen.v/add-workspace-data]
 
   :dependencies
   [[org.clojure/clojure "1.8.0"]]
+
+  :codox {:metadata    {:doc/format :markdown}
+          :doc-paths   ["README.md"]
+          :output-path "doc/api"}
+
 
   :test-selectors
   {:unit        (complement :integration)
@@ -23,7 +29,8 @@
              :env
              :plugins
              :profiles
-             :middleware]
+             :middleware
+             :codox]
 
    :inherit-leaky
    [:dependencies

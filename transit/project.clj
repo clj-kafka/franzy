@@ -1,24 +1,14 @@
 (defproject clj-kafka.franzy/transit "0.0.0"
   :description "A Kafka Serializer/Deserializer supporting Transit, and an add-on for Franzy, a Clojure Kafka client."
-  :url "https://github.com/clj-kafka.franzy/transit"
-  :author "ymilky"
-  :license {:name "Eclipse Public License"
-            :url  "http://www.eclipse.org/legal/epl-v10.html"}
-  :repositories {"snapshots" {:url           "https://clojars.org/repo"
-                              :username      :env
-                              :password      :env
-                              :sign-releases false}
-                 "releases"  {:url           "https://clojars.org/repo"
-                              :username      :env
-                              :password      :env
-                              :sign-releases false}}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.apache.kafka/kafka-clients "0.9.0.1"]
                  [com.cognitect/transit-clj "0.8.285"]]
-  :plugins [[lein-codox "0.9.4"]]
-  :codox {:metadata    {:doc/format :markdown}
-          :doc-paths   ["README.md"]
-          :output-path "doc/api"}
+  :monolith/inherit true
+  :middleware [leiningen.v/dependency-version-from-scm]
+
+  :plugins
+  [[lein-monolith "1.0.1"]
+   [com.roomkey/lein-v "6.1.0-cb-9-0x521a"]]
   :profiles {:dev              {:dependencies [[midje "1.7.0"]]
                                 :plugins      [[lein-midje "3.2"]
                                                [lein-set-version "0.4.1"]
