@@ -6,7 +6,8 @@ The main goal of Franzy is to make life easier for working with Kafka from Cloju
 
 ## Status
 
-https://travis-ci.org/clj-kafka/franzy.svg?branch=develop
+[![Build Status (Develop)](https://travis-ci.org/clj-kafka/franzy.svg?branch=develop)](http://travis-ci.org/clj-kafka/franzy)
+
 
 
 ## Platform
