@@ -2,4 +2,4 @@ language: clojure
 jdk:
   - oraclejdk8
 
-script: "lein monolith each do clean, check, midje"
+script: "lein monolith each do clean, check, midje, install"
