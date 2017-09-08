@@ -22,10 +22,11 @@
   :description "A set of Clojure libraries to work with Apache Kafka (producer, consumer, rebalancing, administration, and validation)."
 
   :vcs :git
-  :deploy-repositories [["releases" :clojars]] :plugins
-  [;; essential for the project structure, as we depend on inheritance of project.clj entries
+  :deploy-repositories [["releases" :clojars]]
+
+   :plugins [;; essential for the project structure, as we depend on inheritance of project.clj entries
    [lein-monolith "1.0.1"]
-   [com.roomkey/lein-v "6.1.0-cb-9-0x521a"]
+   [chrisbetz/lein-v "6.2.0"] ;; replace with appropriate version of com.roomkey/lein-v when @cch1 accepts PR roomkey/lein-v#10 and creates new version on clojars.
 
    ;; test and documentation
    [lein-midje "3.2"]
@@ -75,7 +76,7 @@
     :unstable   #(= (first (:version %)) \0)}
 
    :project-dirs
-   ["admin"
+   [; "admin"
     "avro"
     "common"
     "core"
