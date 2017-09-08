@@ -4,6 +4,11 @@ Franzy is a suite of Clojure libraries for [Apache Kafka](http://kafka.apache.or
 
 The main goal of Franzy is to make life easier for working with Kafka from Clojure. Franzy provides a foundation for building higher-level abstractions for whatever your needs might be.
 
+## Status
+
+https://travis-ci.org/clj-kafka/franzy.svg?branch=develop
+
+
 ## Platform
 
 Franzy breaks up its functionality into several different libraries to minimize dependency issues, especially on differing Kafka dependencies (ex: Server vs. Consumer/Producer).
