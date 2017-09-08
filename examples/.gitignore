@@ -1,2 +1,4 @@
 .lein*
 target/
+doc/api/
+log/
