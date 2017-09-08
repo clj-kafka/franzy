@@ -50,12 +50,17 @@
 
   :profiles {:install-for-with-all-repl {:middleware ^:replace []}
 
-             :dev              {:dependencies [[midje "1.7.0"]]}
+             :dev              {:dependencies [[midje "1.7.0"]
+                                               [com.gfredericks/debug-repl "0.0.9"]]}
 
              :reflection-check {:global-vars
                                 {*warn-on-reflection* true
                                  *assert*             false
                                  *unchecked-math*     :warn-on-boxed}}}
+
+:repl-options
+  {:nrepl-middleware
+    [com.gfredericks.debug-repl/wrap-debug-repl]}
 
   :monolith
   {:inherit [:test-selectors
@@ -63,7 +68,8 @@
              :plugins
              :profiles
              :middleware
-             :codox]
+             :codox
+             :repl-options]
 
    :inherit-leaky
    [:dependencies
@@ -80,12 +86,12 @@
     "avro"
     "common"
     "core"
-    "embedded"
+    ; "embedded"
     "examples"
     "fressian"
     "json"
     "mocks"
-    "nippy"
+    ;"nippy"
     "transit"]}
 
   :release-tasks [["vcs" "assert-committed"]
