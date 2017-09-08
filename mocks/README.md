@@ -21,7 +21,7 @@
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/franzy-mocks "0.0.1"]
+[clj-kafka.franzy/mocks "0.0.1"]
 ```
 
 ## Usage

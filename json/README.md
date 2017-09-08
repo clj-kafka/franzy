@@ -27,7 +27,7 @@ Great fit with [Franzy](https://github.com/ymilky/franzy), a Clojure Kafka clien
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/franzy-json "0.0.1"]
+[clj-kafka.franzy/json "0.0.1"]
 ```
 
 ## Serializing

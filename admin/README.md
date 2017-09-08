@@ -2,7 +2,7 @@
 
 Franzy Admin is a comprehensive set of administration tools for Administering [Kafka](http://kafka.apache.org/).
 
-It fits in well with [Franzy](https://github.com/ymilky/franzy), but there's no dependency. Only what you need to administer Kafka is included, there's no dependency on the consumer/producer client itself.
+It fits in well with [Franzy](https://github.com/clj-kafka/franzy), but there's no dependency. Only what you need to administer Kafka is included, there's no dependency on the consumer/producer client itself.
 
 ## What's in the Box
 
@@ -38,7 +38,7 @@ It fits in well with [Franzy](https://github.com/ymilky/franzy), but there's no 
 ## Docs
 
 * Read the browsable [API](http://ymilky.github.io/franzy-admin/index.html)
-* See [Franzy Source](https://github.com/ymilky/franzy) and docs for more information about schemas, types, etc.
+* See [Franzy Source](https://github.com/clj-kafka/franzy) and docs for more information about schemas, types, etc.
 * For more about using, validating, and developing schemas, see [Schema](https://github.com/plumatic/schema).
 * Commented source and tests
 
@@ -47,10 +47,10 @@ It fits in well with [Franzy](https://github.com/ymilky/franzy), but there's no 
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/franzy-admin "0.0.1"]
+[clj-kafka.franzy/admin "0.0.1"]
 ```
 
-[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-admin.svg)](https://clojars.org/ymilky/franzy-admin)
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/admin.svg)](https://clojars.org/clj-kafka.franzy/admin)
 
 ## Requirements
 

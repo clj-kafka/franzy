@@ -36,10 +36,10 @@
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/franzy-common "0.0.1"]
+[clj-kafka.franzy/common "0.0.1"]
 ```
 
-[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-common.svg)](https://clojars.org/ymilky/franzy-common)
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/common.svg)](https://clojars.org/clj-kafka.franzy/common)
 
 ## License
 

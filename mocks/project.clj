@@ -1,22 +1,16 @@
-(defproject ymilky/franzy-mocks "0.0.1"
+(defproject clj-kafka.franzy/mocks "0.0.0"
   :description "Mock producer and consumer for Kafka 0.9+ for testing, dev, etc."
-  :url "https://github.com/ymilky/franzy-mocks"
-  :author "ymilky"
-  :license {:name "Eclipse Public License"
-            :url  "http://www.eclipse.org/legal/epl-v10.html"}
-  :repositories {"snapshots" {:url           "https://clojars.org/repo"
-                              :username      :env
-                              :password      :env
-                              :sign-releases false}
-                 "releases"  {:url           "https://clojars.org/repo"
-                              :username      :env
-                              :password      :env
-                              :sign-releases false}}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.apache.kafka/kafka-clients "0.9.0.1"]
-                 [ymilky/franzy-common "0.0.1"]
-                 [ymilky/franzy "0.0.1"]]
-  :plugins [[lein-codox "0.9.4"]]
+                 [clj-kafka.franzy/common nil]
+                 [clj-kafka.franzy/core nil]]
+  :monolith/inherit true
+  :middleware [leiningen.v/dependency-version-from-scm]
+
+  :plugins
+  [[lein-monolith "1.0.1"]
+   [com.roomkey/lein-v "6.1.0-cb-9-0x521a"]
+   [lein-codox "0.9.4"]]
   :codox {:metadata    {:doc/format :markdown}
           :doc-paths   ["README.md"]
           :output-path "doc/api"}

@@ -36,10 +36,10 @@ Great fit with [Franzy](https://github.com/ymilky/franzy), a Clojure Kafka clien
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/franzy-avro "0.0.1"]
+[clj-kafka.franzy/avro "0.0.1"]
 ```
 
-[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-avro.svg)](https://clojars.org/ymilky/franzy-avro)
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/avro.svg)](https://clojars.org/clj-kafka.franzy/avro)
 
 ## Serializing
 

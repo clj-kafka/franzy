@@ -47,7 +47,7 @@ A good fit with [Franzy](https://github.com/ymilky/franzy), a Kafka client and s
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/franzy-embedded "0.0.1"]
+[clj-kafka.franzy/embedded "0.0.1"]
 ```
 
 ### Requirements

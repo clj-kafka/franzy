@@ -24,10 +24,10 @@ Great fit with [Franzy](https://github.com/ymilky/franzy), a Clojure Kafka clien
 Add the necessary dependency to your project:
 
 ```clojure
-[ymilky/franzy-fressian "0.0.1"]
+[clj-kafka.franzy/fressian "0.0.1"]
 ```
 
-[![Clojars Project](https://img.shields.io/clojars/v/ymilky/franzy-fressian.svg)](https://clojars.org/ymilky/franzy-fressian)
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/fressian.svg)](https://clojars.org/clj-kafka.franzy/fressian)
 
 ## Serializing
 
