@@ -8,5 +8,5 @@
 
   :plugins
   [[lein-monolith "1.0.1"]
-   [chrisbetz/lein-v "6.2.0"] ;; replace with appropriate version of com.roomkey/lein-v when @cch1 accepts PR roomkey/lein-v#10 and creates new version on clojars.
+   [com.roomkey/lein-v "6.2.0"]
    ])

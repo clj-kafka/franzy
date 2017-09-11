@@ -26,7 +26,7 @@
 
    :plugins [;; essential for the project structure, as we depend on inheritance of project.clj entries
    [lein-monolith "1.0.1"]
-   [chrisbetz/lein-v "6.2.0"] ;; replace with appropriate version of com.roomkey/lein-v when @cch1 accepts PR roomkey/lein-v#10 and creates new version on clojars.
+   [com.roomkey/lein-v "6.2.0"]
 
    ;; test and documentation
    [lein-midje "3.2"]
@@ -50,17 +50,12 @@
 
   :profiles {:install-for-with-all-repl {:middleware ^:replace []}
 
-             :dev              {:dependencies [[midje "1.7.0"]
-                                               [com.gfredericks/debug-repl "0.0.9"]]}
+             :dev              {:dependencies [[midje "1.7.0"]]}
 
              :reflection-check {:global-vars
                                 {*warn-on-reflection* true
                                  *assert*             false
                                  *unchecked-math*     :warn-on-boxed}}}
-
-:repl-options
-  {:nrepl-middleware
-    [com.gfredericks.debug-repl/wrap-debug-repl]}
 
   :monolith
   {:inherit [:test-selectors

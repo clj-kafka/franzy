@@ -10,8 +10,9 @@
   :monolith/inherit true
   :middleware [leiningen.v/dependency-version-from-scm]
 
+
   :plugins
   [[lein-monolith "1.0.1"]
-   [chrisbetz/lein-v "6.2.0"] ;; replace with appropriate version of com.roomkey/lein-v when @cch1 accepts PR roomkey/lein-v#10 and creates new version on clojars.
-   ]
-  :profiles {:dev {:dependencies [[jarohen/nomad "0.7.2"]]}})
+   [com.roomkey/lein-v "6.2.0"]]
+  :profiles {:dev {:dependencies [[midje "1.7.0"]
+                                  [jarohen/nomad "0.7.2"]]}})
