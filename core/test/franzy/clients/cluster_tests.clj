@@ -7,6 +7,7 @@
   (:import (org.apache.kafka.common Cluster)))
 
 (def mock-node-count 5)
+(def mock-cluster-id "mock")
 
 (def mock-topic-partitions
   [{:topic "excel-database" :partition 0}
@@ -15,7 +16,7 @@
    {:topic "fried-side-items" :partition 50}])
 
 (defn create-mock-cluster []
-  (cluster/mock-cluster mock-node-count mock-topic-partitions #{"michael-bolton"}))
+  (cluster/mock-cluster mock-cluster-id mock-node-count mock-topic-partitions #{"michael-bolton"} nil))
 
 (def mock-cluster (create-mock-cluster))
 

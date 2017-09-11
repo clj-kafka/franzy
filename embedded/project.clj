@@ -4,7 +4,7 @@
                  [prismatic/schema "1.1.0"]
                  [com.taoensso/timbre "4.3.1"]
                  [com.stuartsierra/component "0.3.1"]
-                 [org.apache.kafka/kafka_2.11 "0.9.0.1" :exclusions [org.scala-lang/scala-library]]
+                 [org.apache.kafka/kafka_2.11 "0.11.0.0" :exclusions [org.scala-lang/scala-library]]
                  [org.scala-lang/scala-library "2.11.8"]
                  [clj-kafka.franzy/common nil]]
   :monolith/inherit true

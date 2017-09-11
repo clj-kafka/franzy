@@ -27,13 +27,14 @@
 
   If no parameters are provided, an empty cluster is created."
   (^Cluster [] (Cluster/empty))
-  (^Cluster [nodes partition-info]
-    (make-cluster nodes partition-info nil))
-  (^Cluster [nodes partition-info unauthorized-topics]
+  (^Cluster [id nodes partition-info]
+    (make-cluster id nodes partition-info nil nil))
+  (^Cluster [id nodes partition-info unauthorized-topics internal-topics]
    (let [node-coll (map codec/map->node nodes)
          partition-coll (map codec/map->partition-info partition-info)
-         unauthorized-topic-set (into #{} unauthorized-topics)]
-     (Cluster. node-coll partition-coll unauthorized-topic-set))))
+         unauthorized-topic-set (into #{} unauthorized-topics)
+         internal-topics-set (into #{} internal-topics)]
+     (Cluster. id node-coll partition-coll unauthorized-topic-set internal-topics-set))))
 
 (defn mock-nodes
   "Creates a mock number of nodes based on the provided node count."
@@ -42,10 +43,10 @@
 
 (defn mock-cluster
   "Creates a mock cluster for testing, dev, and as dummy data for Kafka functions requiring clusters such as partitioners."
-  [node-count topic-partitions unauthorized-topics]
+  [id node-count topic-partitions unauthorized-topics internal-topics]
   (let [nodes (mock-nodes node-count)
         partitions (partitions/mock-partition-info topic-partitions)]
-    (make-cluster nodes partitions unauthorized-topics)))
+    (make-cluster id nodes partitions unauthorized-topics internal-topics)))
 
 (defn available-partitions
   "Retrieve a collection of available partitions for a topic in a cluster."

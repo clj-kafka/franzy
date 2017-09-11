@@ -2,7 +2,7 @@
   :description "A Kafka Clojure Admin client, with support for topic, partition, group, cluster management, and more."
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [prismatic/schema "1.1.0"]
-                 [org.apache.kafka/kafka_2.11 "0.9.0.1" :exclusions [org.scala-lang/scala-library]]
+                 [org.apache.kafka/kafka_2.11 "0.11.0.0" :exclusions [org.scala-lang/scala-library]]
                  [org.scala-lang/scala-library "2.11.8"]
                  [clj-kafka.franzy/common nil]
                  [com.taoensso/timbre "4.3.1"]]

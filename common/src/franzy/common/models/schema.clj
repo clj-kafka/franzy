@@ -45,7 +45,8 @@
 
 (def Cluster
   "Schema for Kafka client cluster metadata."
-  {(s/optional-key :nodes) [Node]
+  {(s/required-key :id)            fs/NonEmptyString
+   (s/optional-key :nodes) [Node]
    (s/optional-key :partitions) [PartitionInfo]
    (s/optional-key :unauthorized-topics) [s/Str]})
 
