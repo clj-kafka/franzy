@@ -4,3 +4,4 @@ pom.xml.asc
 .DS_Store
 /doc/api
 **/.nrepl-*
+target
