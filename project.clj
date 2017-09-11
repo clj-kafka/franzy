@@ -91,6 +91,6 @@
 
   :release-tasks [["vcs" "assert-committed"]
                   ["v" "update"]                            ;; compute new version & tag it
-                  ["monolith" "each" "do" "clean, install, deploy"]
+                  ["monolith" "each" "do" "clean" "install" "deploy"]
                   ["vcs" "push"]
                   ])
