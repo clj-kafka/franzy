@@ -81,7 +81,7 @@
     "avro"
     "common"
     "core"
-    ; "embedded"
+     "embedded"
     ; "examples"
     "fressian"
     "json"
