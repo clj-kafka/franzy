@@ -8,7 +8,9 @@
                  [org.scala-lang/scala-library "2.11.8"]
                  [clj-kafka.franzy/common nil]]
   :monolith/inherit true
-  :middleware [leiningen.v/dependency-version-from-scm]
+  :middleware [leiningen.v/dependency-version-from-scm
+               leiningen.v/version-from-scm
+               leiningen.v/add-workspace-data]
 
 
   :plugins

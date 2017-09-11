@@ -15,7 +15,9 @@
                  [org.slf4j/slf4j-nop "1.7.19"]
                  [log4j/log4j "1.2.17"]]
   :monolith/inherit true
-  :middleware [leiningen.v/dependency-version-from-scm]
+  :middleware [leiningen.v/dependency-version-from-scm
+               leiningen.v/version-from-scm
+               leiningen.v/add-workspace-data]
 
   :plugins
   [[lein-monolith "1.0.1"]
