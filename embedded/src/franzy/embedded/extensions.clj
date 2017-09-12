@@ -1,5 +1,7 @@
 (ns franzy.embedded.extensions
-  (:require [franzy.embedded.protocols :refer :all])
+  (:require [franzy.embedded.protocols :refer :all]
+            [franzy.embedded.component] ; require is necessary to support import/establishe dependency.
+            )
   (:import (kafka.server KafkaServer)
            (franzy.embedded.component EmbeddedBroker)))
 
