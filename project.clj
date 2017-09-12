@@ -1,4 +1,4 @@
-;;; 
+;;;
 ;;; ######################################################################
 ;;; ## check, test and install
 ;;; 
@@ -86,7 +86,7 @@
     "fressian"
     "json"
     ;"mocks"
-    ;"nippy"
+    "nippy"
     "transit"]}
 
   :release-tasks [["vcs" "assert-committed"]
