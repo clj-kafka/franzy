@@ -1,4 +1,15 @@
+sudo: required
+
 language: clojure
+
+services:
+  - docker
+
+before_install:
+- docker pull wurstmeister/zookeeper
+- docker run -d -p 127.0.0.1:2181:2181 wurstmeister/zookeeper
+- docker ps -a
+
 jdk:
   - oraclejdk8
 

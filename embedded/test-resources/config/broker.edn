@@ -1,0 +1,15 @@
+{:kakfa/broker-config
+ {:host.name                            "127.0.0.1"
+  :port                                 9092
+  :broker.id                            0
+  :advertised.host.name                 "your-insignificant-host.com"
+  :advertised.port                      9092
+  :num.partitions                       1
+  :controller.socket.timeout.ms         1500
+  :controlled.shutdown.enable           true
+  :replica.socket.timeout.ms            1500
+  :delete.topic.enable                  true
+  :controlled.shutdown.retry.backoff.ms 100
+  :log.cleaner.dedupe.buffer.size       2097152
+  :zookeeper.connect                    "127.0.0.1:2181"}
+ }

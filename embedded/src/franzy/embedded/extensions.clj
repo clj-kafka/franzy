@@ -11,9 +11,9 @@
     (some-> server
             (.brokerState)
             (.newState state)))
-  (bound-port [{:keys [^KafkaServer server]} security-protocol]
+  (bound-port [{:keys [^KafkaServer server]} listener-name]
     (some-> server
-            (.boundPort security-protocol)))
+            (.boundPort listener-name)))
   ZookeeperConnected
   (zk-utils [{:keys [^KafkaServer server]}]
     (some-> server

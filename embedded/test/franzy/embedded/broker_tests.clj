@@ -5,7 +5,8 @@
             [franzy.embedded.core-test :as core-test])
   (:import (franzy.embedded.broker EmbeddedKafkaBroker StartableEmbeddedKafkaBroker)
            (kafka.utils ZkUtils)
-           (org.apache.kafka.common.protocol SecurityProtocol)))
+           (org.apache.kafka.common.protocol SecurityProtocol)
+           (org.apache.kafka.common.network ListenerName)))
 
 (facts
   "A broker can be created in multiple ways, depending on your needs."
@@ -75,8 +76,8 @@
     "It is possible to check the bound port of a broker that is started per channel."
     (with-open [broker (core-test/make-test-broker)]
       (startup broker)
-      (bound-port broker SecurityProtocol/PLAINTEXT) => (:port (core-test/make-broker-config))))
+      (bound-port broker (ListenerName/forSecurityProtocol SecurityProtocol/PLAINTEXT)) => (:port (core-test/make-broker-config))))
   (fact
     "One way of testing whether a broker is working or started is to check its bound port. It will be an exception if not started."
     (let [broker (core-test/make-test-broker)]
-      (bound-port broker SecurityProtocol/PLAINTEXT) => (throws NullPointerException))))
+      (bound-port broker (ListenerName/forSecurityProtocol SecurityProtocol/PLAINTEXT)) => (throws NullPointerException))))

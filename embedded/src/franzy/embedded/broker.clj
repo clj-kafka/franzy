@@ -37,8 +37,8 @@
     (-> server
         (.brokerState)
         (.newState ^Byte state)))
-  (bound-port [_ security-protocol]
-    (.boundPort server security-protocol))
+  (bound-port [_ listener-name]
+    (.boundPort server listener-name))
   ZookeeperConnected
   (zk-utils [_]
     "Returns the broker's instance of ZkUtils, which can be used for administration.

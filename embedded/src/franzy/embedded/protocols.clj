@@ -1,5 +1,6 @@
 (ns franzy.embedded.protocols
-  (:import (org.apache.kafka.common.protocol SecurityProtocol)))
+  (:import (org.apache.kafka.common.protocol SecurityProtocol)
+           (org.apache.kafka.common.network ListenerName)))
 
 (defprotocol KafkaBrokerLifecycle
   "Basic Kafka Broker lifecycle protocol."
@@ -19,4 +20,4 @@
   "Stateful Kafka Broker information."
   (set-state [this ^Byte state])
   ;;TODO: switch to clojure type
-  (bound-port [this ^SecurityProtocol security-protocol]))
+  (bound-port [this ^ListenerName listener-name]))

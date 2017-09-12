@@ -8,7 +8,8 @@
   (:import (org.apache.kafka.common.protocol SecurityProtocol)
            (franzy.embedded.component EmbeddedBroker)
            (kafka.server KafkaServer)
-           (kafka.utils ZkUtils)))
+           (kafka.utils ZkUtils)
+           (org.apache.kafka.common.network ListenerName)))
 
 (facts
   "A broker component can be created in multiple ways, depending on your needs."
@@ -64,5 +65,5 @@
   (fact
     "It is possible to check the bound port of a broker that is started per channel."
     (let [broker (component/start (core-test/make-test-broker-component))]
-      (bound-port broker SecurityProtocol/PLAINTEXT) => (:port (core-test/make-broker-config))
+      (bound-port broker (ListenerName/forSecurityProtocol SecurityProtocol/PLAINTEXT)) => (:port (core-test/make-broker-config))
       (component/stop broker))))

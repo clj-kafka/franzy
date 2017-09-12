@@ -17,4 +17,5 @@
   [[lein-monolith "1.0.1"]
    [com.roomkey/lein-v "6.2.0"]]
   :profiles {:dev {:dependencies [[midje "1.7.0"]
-                                  [jarohen/nomad "0.7.2"]]}})
+                                  [jarohen/nomad "0.7.2"]]
+                   :resource-paths ["test-resources"]}})
