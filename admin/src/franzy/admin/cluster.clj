@@ -39,7 +39,8 @@
        (.getBrokerInfo zk-utils)
        (codec/decode)))
 
-(defn broker-endpoints-for-channel
+;; The method "getAllBrokerEndPointsForChannel" does not exist anymore. TODO: Find replacement, if necessary.
+#_(defn broker-endpoints-for-channel
   "Returns all broker info in the cluster matching a keyword representing the given protocol type.
 
   Valid values are:

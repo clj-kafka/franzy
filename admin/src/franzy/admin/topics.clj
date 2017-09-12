@@ -2,7 +2,7 @@
   (:require [franzy.admin.codec :as codec]
             [franzy.common.configuration.codec :as config-codec])
   (:import (kafka.utils ZkUtils)
-           (kafka.admin AdminUtils)
+           (kafka.admin AdminUtils RackAwareMode$Enforced$)
            (scala.collection Set)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -67,9 +67,9 @@
   ([^ZkUtils zk-utils ^String topic partitions replication-factor]
    (create-topic! zk-utils topic partitions replication-factor nil))
   ([^ZkUtils zk-utils ^String topic partitions replication-factor topic-config]
-   (->> (or topic-config {})
-        (config-codec/encode)
-        (AdminUtils/createTopic zk-utils topic (int partitions) (int (or replication-factor 1))))))
+      (create-topic! zk-utils topic partitions replication-factor topic-config RackAwareMode$Enforced$/MODULE$))
+  ([^ZkUtils zk-utils ^String topic partitions replication-factor topic-config rack-aware-mode]
+   (AdminUtils/createTopic zk-utils topic (int partitions) (int (or replication-factor 1)) (config-codec/encode (or topic-config {})) rack-aware-mode)))
 
 (defn delete-topic!
   "Marks a topic for deletion.

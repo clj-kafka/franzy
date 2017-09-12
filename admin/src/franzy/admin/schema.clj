@@ -14,11 +14,12 @@
   "Schema for a Kafka endpoint."
   {(s/required-key :host)          s/Str
    (s/required-key :port)          s/Int
-   (s/required-key :protocol-type) fms/SecurityProtocolEnum})
+   (s/required-key :listener-name)  s/Any ; <-- TODO: Be more specific here.
+   (s/required-key :security-protocol) fms/SecurityProtocolEnum})
 
 (def Broker
   {(s/required-key :id)        s/Int
-   (s/required-key :endpoints) {fms/SecurityProtocolEnum Endpoint}})
+   (s/required-key :endpoints) [Endpoint]})
 
 (def BrokerEndPoint
   "Schema for a Kafka broker endpoint."

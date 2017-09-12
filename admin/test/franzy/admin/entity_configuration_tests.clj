@@ -113,7 +113,7 @@
         (coll? node-data) => true?
         (map? node-data) => true
         ;;TODO: schema + conversions of key names to more clojureish if desired...
-        (keys node-data) => (just [:version :entity_type :entity_name])))
+        (keys node-data) => (just [:version :entity_path])))
     (fact
       "The root path used to store entity configurations in Zookeeper for a given config type can be retrieved."
       ;;ex: /config/topics

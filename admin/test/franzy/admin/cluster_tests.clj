@@ -37,7 +37,7 @@
         (nil? metadata) => false
         (map? metadata) => true
         (s/check fas/Broker metadata) => nil))
-    (fact
+    #_(fact ;; TODO: Underlying method was removed in 0.10.0.2. Find replacement if necessary.
       "Endpoints per channel can be listed."
       ;;ex: [{:id 0, :host "127.0.0.1", :port 9092} {:id 1001, :host "127.0.0.1", :port 9092}]
       (let [endpoints (broker-endpoints-for-channel zk-utils :plaintext)]

@@ -114,7 +114,7 @@
 (defn config-change-znode-data
   "Gets znode data for configuration nodes in Zookeeper."
   [config-type ^String entity-name]
-  (-> (codec/encode-config-type config-type)
+  (-> #_(codec/encode-config-type config-type) ;; TODO: Check if this is the right thing to to to migrate to 0.11.0.0 (from 0.9.x).
       (AdminUtils/getConfigChangeZnodeData entity-name)
       (codec/decode)))
 
@@ -130,4 +130,4 @@
 
 (defn entity-config-changes-path []
   "Returns the entity config changes path in Zookeeper."
-  (ZkUtils/EntityConfigChangesPath))
+  (ZkUtils/ConfigChangesPath))

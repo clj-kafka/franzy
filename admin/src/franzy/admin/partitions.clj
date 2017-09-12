@@ -2,7 +2,7 @@
   (:require [franzy.admin.codec :as codec]
             [franzy.common.configuration.codec :as config-codec])
   (:import (kafka.utils ZkUtils)
-           (kafka.admin AdminUtils)
+           (kafka.admin AdminUtils RackAwareMode$Enforced$)
            (org.I0Itec.zkclient ZkClient)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -47,7 +47,9 @@
     ;;TODO: verify if blank replica doesn't cause any issues
    (redefine-partition-count! zk-utils topic partitions "" true))
   ([^ZkUtils zk-utils topic partitions replica-assignment check-broker-available?]
-   (AdminUtils/addPartitions zk-utils topic (int partitions) replica-assignment check-broker-available?)))
+   (redefine-partition-count! zk-utils topic partitions replica-assignment check-broker-available? RackAwareMode$Enforced$/MODULE$))
+  ([^ZkUtils zk-utils topic partitions replica-assignment check-broker-available? rack-aware-mode]
+   (AdminUtils/addPartitions zk-utils topic (int partitions) replica-assignment check-broker-available? rack-aware-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Replicas
@@ -104,13 +106,14 @@
 
 ;;perhaps a rational human can explain to me why this ALSO requires a ZkClient , when ZkUtils is constructed with one...
 ;;someone s-it the bed and then slept in it perhaps.
+;; ... and finally someone heard you ;) zk-client is gone ;)
 (defn partition-leaders-metadata
-  [^ZkUtils zk-utils ^ZkClient zk-client topic-partitions]
+  [^ZkUtils zk-utils topic-partitions]
   "Retrieves the leaders (if any) for each topic and partition map provided."
   (let [topics-and-partitions (->> topic-partitions
                                    (codec/sequential->topic-and-partitions)
                                    (codec/encode))]
-    (->> (.getPartitionLeaderAndIsrForTopics zk-utils zk-client topics-and-partitions)
+    (->> (.getPartitionLeaderAndIsrForTopics zk-utils topics-and-partitions)
          (codec/decode))))
 
 (defn partition-leader-metadata

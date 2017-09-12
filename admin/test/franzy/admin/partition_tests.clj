@@ -89,15 +89,14 @@
         ;  :leader-and-isr
         ;                    {:leader 1002, :isr [1002], :leader-epoch 0, :zk-version 0}}}
 
-        (with-open [zk-client (core-test/make-zk-client)]
-          (let [topic-partitions [{:topic topic :partition 0} {:topic topic :partition 1} {:topic topic-to-repartition :partition 0}]
-                metadata (partition-leaders-metadata zk-utils zk-client topic-partitions)
-                topic-part-keys (keys metadata)]
-            (nil? metadata) => false
-            (empty? metadata) => false
-            (map? metadata) => true
-            (empty? topic-part-keys) => false
-            (s/validate [fs/TopicPartition] topic-part-keys) => topic-part-keys)))
+        (let [topic-partitions [{:topic topic :partition 0} {:topic topic :partition 1} {:topic topic-to-repartition :partition 0}]
+              metadata (partition-leaders-metadata zk-utils topic-partitions)
+              topic-part-keys (keys metadata)]
+          (nil? metadata) => false
+          (empty? metadata) => false
+          (map? metadata) => true
+          (empty? topic-part-keys) => false
+          (s/validate [fs/TopicPartition] topic-part-keys) => topic-part-keys))
       (fact
         "Partition leader metadata can be queried by topic partition."
         ;;ex {:leader 1001, :isr [1001], :leader-epoch 0, :zk-version 0}

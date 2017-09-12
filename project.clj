@@ -34,7 +34,8 @@
 
 	;; little helpers
    [lein-cljfmt "0.5.7"]
-   [lein-cprint "1.2.0"]]
+   [lein-cprint "1.2.0"]
+   [lein-update-dependency "0.1.2"]]
 
   :middleware [leiningen.v/version-from-scm
                leiningen.v/add-workspace-data]
@@ -77,7 +78,7 @@
     :unstable   #(= (first (:version %)) \0)}
 
    :project-dirs
-   [; "admin"
+   [ "admin"
     "avro"
     "common"
     "core"

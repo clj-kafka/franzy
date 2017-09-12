@@ -197,7 +197,9 @@
   (decode [v]
     {:host          (.host v)
      :port          (.port v)
-     :protocol-type (-> (.protocolType v)
+     :listener-name (-> (.listenerName v)
+                        (decode))
+     :security-protocol (-> (.securityProtocol v)
                         (decode))})
 
   BrokerEndPoint

@@ -7,7 +7,9 @@ services:
 
 before_install:
 - docker pull wurstmeister/zookeeper
+- docker pull wurstmeister/kafka
 - docker run -d -p 127.0.0.1:2181:2181 wurstmeister/zookeeper
+- docker run -d -p 127.0.0.1:9092:9092 wurstmeister/kafka
 - docker ps -a
 
 jdk:
