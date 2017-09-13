@@ -1,9 +1,9 @@
 {:kakfa/broker-config
  {:host.name                            "127.0.0.1"
-  :port                                 9092
+  :port                                 9093
   :broker.id                            0
   :advertised.host.name                 "your-insignificant-host.com"
-  :advertised.port                      9092
+  :advertised.port                      9093
   :num.partitions                       1
   :controller.socket.timeout.ms         1500
   :controlled.shutdown.enable           true
