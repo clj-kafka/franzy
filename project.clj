@@ -83,7 +83,7 @@
     "common"
     "core"
      "embedded"
-    ; "examples"
+     "examples"
     "fressian"
     "json"
     ;"mocks"
