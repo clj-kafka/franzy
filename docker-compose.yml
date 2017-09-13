@@ -1,3 +1,6 @@
+# TODO: maybe we should move docker-compose into the subprojects
+# and use https://github.com/rsslldnphy/lein-docker-compose to start/stop
+
 version: "2"
 services:
   zookeeper:
