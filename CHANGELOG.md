@@ -3,9 +3,18 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
-### Changed
+### Changed 
 
+- Updates documentation
+
+[Git Log](https://github.com/clj-kafka/franzy/compare/v2.0.6...HEAD)
+
+## [v2.0.6] - 2017-09-13
+
+### Changed
 - Forked MastodonC-fork of the original ymilky projects (cause they had some additional fixes). Structural change to projects to use a monorepo.
+- migrated to Kafka 0.11.0.0 (should be also okay for 0.10.2.x, but has not been tested)
+
 
 
 ## [0.0.2] - 2016-03-12
