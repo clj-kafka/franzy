@@ -16,18 +16,64 @@ The main goal of Franzy is to make life easier for working with Kafka from Cloju
 Franzy breaks up its functionality into several different libraries to minimize dependency issues. Currently, the release and the develop branch target Kafka 0.11.0.0.
 All the sub-projects are organized in this monorepository, but can be used (mostly) independently.
 
-| Name                                                         | Type               | Description                                                                                                                 | Major Dependencies                                   |
-|--------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/core.svg)](https://clojars.org/clj-kafka.franzy/core)                 | client             | This library - core client-oriented functionality, i.e. consumer, producer, schemas, more.                                  | Franzy-Common, Kafka client                          |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/admin.svg)](https://clojars.org/clj-kafka.franzy/admin)       | client             | Administer Kafka with Clojure, get Clojure data in/out, create topics, add partitions, list brokers, etc.                   | Franzy-Common, Kafka server (Scala/Java)             |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/common.svg)](https://clojars.org/clj-kafka.franzy/common)     | lib                | Common functionality for any Franzy development, and useful for Kafka in general                                            | Clojure, Schema                                      |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/nippy.svg)](https://clojars.org/clj-kafka.franzy/nippy)       | de/serializer      | Nippy Serializer/Deserializer for Kafka.                                                                                    | [Nippy](https://github.com/ptaoussanis/nippy)        |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/transit.svg)](https://clojars.org/clj-kafka.franzy/transit)   | de/serializer      | Transit Serializer/Deserializer for Kafka.                                                                                  | [Transit](https://github.com/cognitect/transit-clj)  |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/json.svg)](https://clojars.org/clj-kafka.franzy/json)         | de/serializer      | JSON/Smile Serializer/Deserializer for Kafka.                                                                               | [Cheshire](https://github.com/dakrone/cheshire)      |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/fressian.svg)](https://clojars.org/clj-kafka.franzy/fressian) | de/serializer      | Fressian Serializer/Deserializer for Kafka.                                                                                 | [Fressian](https://github.com/clojure/data.fressian) |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/avro.svg)](https://clojars.org/clj-kafka.franzy/avro)         | de/serializer      | AVRO Serializer/Deserializer for Kafka.                                                                                     | [Abracad](https://github.com/damballa/abracad/blob/master/src/clojure/abracad/avro/edn.clj)                                                  |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/embedded.svg)](https://clojars.org/clj-kafka.franzy/embedded) | embedded broker    | Full featured embedded Kafka server for testing/dev, with multiple implementations including concrete types and components. | Kafka server                                         |
-| [![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/examples.svg)](https://clojars.org/clj-kafka.franzy/examples) | examples           | Growing project of examples using all the above, to learn at your leisure.                                                  | All                                                  |
+
+### Core
+
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/core.svg)](https://clojars.org/clj-kafka.franzy/core)
+
+Client library - core client-oriented functionality, i.e. consumer, producer, schemas, more.
+
+
+### Admin
+
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/admin.svg)](https://clojars.org/clj-kafka.franzy/admin)
+
+Administer Kafka with Clojure, get Clojure data in/out, create topics, add partitions, list brokers, etc.
+
+### Common
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/common.svg)](https://clojars.org/clj-kafka.franzy/common)
+Common functionality for any Franzy development, and useful for Kafka in general
+
+
+### Nippy de/serializer      
+
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/nippy.svg)](https://clojars.org/clj-kafka.franzy/nippy)
+
+[Nippy](https://github.com/ptaoussanis/nippy) Serializer/Deserializer for Kafka.
+
+### Transit de/serializer
+
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/transit.svg)](https://clojars.org/clj-kafka.franzy/transit)
+
+[Transit](https://github.com/cognitect/transit-clj) Serializer/Deserializer for Kafka.
+
+
+### JSON de/serializer
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/json.svg)](https://clojars.org/clj-kafka.franzy/json)
+
+JSON/Smile Serializer/Deserializer for Kafka using [Cheshire](https://github.com/dakrone/cheshire).
+
+### Fressian de/serializer
+
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/fressian.svg)](https://clojars.org/clj-kafka.franzy/fressian)
+
+[Fressian](https://github.com/clojure/data.fressian) Serializer/Deserializer for Kafka.
+
+### AVRO de/serializer
+
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/avro.svg)](https://clojars.org/clj-kafka.franzy/avro)
+
+AVRO Serializer/Deserializer for Kafka using [Abracad](https://github.com/damballa/abracad/blob/master/src/clojure/abracad/avro/edn.clj).
+
+### Embedded broker
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/embedded.svg)](https://clojars.org/clj-kafka.franzy/embedded)
+
+Full featured embedded Kafka server for testing/dev, with multiple implementations including concrete types and components.
+
+### Examples
+[![Clojars Project](https://img.shields.io/clojars/v/clj-kafka.franzy/examples.svg)](https://clojars.org/clj-kafka.franzy/examples)
+
+Growing project of examples using all the above, to learn at your leisure.
 
 <!-- | [Franzy Mocks](https://github.com/ymilky/franzy-mocks)       | testing            | Test your consumers and producers without a running Kafka cluster, and more in the future.                                  | Franzy, Kafka client                                 | -->
 <!-- | [Travel Zoo](https://github.com/ymilky/travel-zoo)           | embedded Zookeeper | Embedded Zookeeper servers and clusters for testing and development, with concrete type and component versions available.   | Curator Test                                         |-->
