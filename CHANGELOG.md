@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. This change
 
 [Git Log](https://github.com/clj-kafka/franzy/compare/v2.0.7...HEAD)
 
-## [Unreleased]
+## [v2.0.7] - 2017-09-29
 
 ### Fixed
 
