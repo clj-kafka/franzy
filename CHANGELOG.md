@@ -5,9 +5,19 @@ All notable changes to this project will be documented in this file. This change
 
 ### Changed 
 
+[Git Log](https://github.com/clj-kafka/franzy/compare/v2.0.7...HEAD)
+
+## [Unreleased]
+
+### Fixed
+
+- updated wrong dependency to franzy-common artefact from another fork.
+
+### Changed 
+
 - Updates documentation
 
-[Git Log](https://github.com/clj-kafka/franzy/compare/v2.0.6...HEAD)
+[Git Log](https://github.com/clj-kafka/franzy/compare/v2.0.6...v2.0.7)
 
 ## [v2.0.6] - 2017-09-13
 
