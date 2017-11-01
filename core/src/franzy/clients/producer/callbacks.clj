@@ -33,7 +33,6 @@
   (^Callback [send-callback-fn]
    (reify Callback
      (onCompletion [_ record-metadata exception]
-       (println "calling send callback...")
        (send-callback-fn (codec/decode record-metadata) exception))))
   (^Callback [record-metadata-fn exception-handler-fn]
    "Takes 2 functions, 1 to process record metadata, and another to process exceptions.
