@@ -5,3 +5,5 @@ pom.xml.asc
 /doc/api
 **/.nrepl-*
 target
+all.iml
+.idea
