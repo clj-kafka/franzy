@@ -2,7 +2,6 @@
   (:require [franzy.embedded.configuration :as config])
   (:import (kafka.server KafkaServerStartable KafkaServer)
            (org.apache.kafka.common.utils SystemTime)
-           ()
            (scala.collection.immutable List)))
 
 (defn make-server
@@ -26,7 +25,7 @@
   This server may be more amenable for command-line usage."
   (^KafkaServerStartable [] (make-startable-server nil))
   (^KafkaServerStartable
-  [broker-config]
+   [broker-config]
    (-> broker-config
        (config/make-kafka-config)
        (KafkaServerStartable.))))
